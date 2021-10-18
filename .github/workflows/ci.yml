@@ -45,7 +45,7 @@ jobs:
     name: "${{ matrix.PYTHON.TOXENV }} ${{ matrix.PYTHON.OPENSSL.TYPE }} ${{ matrix.PYTHON.OPENSSL.VERSION }} ${{ matrix.PYTHON.TOXARGS }} ${{ matrix.PYTHON.OPENSSL.CONFIG_FLAGS }}"
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           persist-credentials: false
       - uses: actions/cache@v2.1.6
@@ -68,7 +68,7 @@ jobs:
           toolchain: ${{ matrix.RUST }}
           override: true
           default: true
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           repository: "google/wycheproof"
           path: "wycheproof"
@@ -137,7 +137,7 @@ jobs:
     name: "${{ matrix.IMAGE.TOXENV }} on ${{ matrix.IMAGE.IMAGE }}"
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           persist-credentials: false
       - uses: actions/cache@v2.1.6
@@ -150,7 +150,7 @@ jobs:
             src/rust/target/
           key: ${{ runner.os }}-${{ matrix.IMAGE.IMAGE }}-cargo-2-${{ hashFiles('**/Cargo.lock') }}
 
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           repository: "google/wycheproof"
           path: "wycheproof"
@@ -183,7 +183,7 @@ jobs:
     name: "${{ matrix.PYTHON.TOXENV }} with Rust ${{ matrix.RUST }}"
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           persist-credentials: false
       - uses: actions/cache@v2.1.6
@@ -206,7 +206,7 @@ jobs:
           toolchain: ${{ matrix.RUST }}
           override: true
           default: true
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           repository: "google/wycheproof"
           path: "wycheproof"
@@ -226,7 +226,7 @@ jobs:
     name: "Rust Coverage"
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           persist-credentials: false
       - uses: actions/cache@v2.1.6
@@ -257,7 +257,7 @@ jobs:
           version: latest
         if: steps.cargo-cache.outputs.cache-hit != 'true'
 
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           repository: "google/wycheproof"
           path: "wycheproof"
@@ -300,7 +300,7 @@ jobs:
     name: "${{ matrix.PYTHON.TOXENV }} on macOS"
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           persist-credentials: false
       - uses: actions/cache@v2.1.6
@@ -326,7 +326,7 @@ jobs:
 
       - run: python -m pip install tox requests coverage
 
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           repository: "google/wycheproof"
           path: "wycheproof"
@@ -368,7 +368,7 @@ jobs:
     name: "${{ matrix.PYTHON.TOXENV }} on ${{ matrix.WINDOWS.WINDOWS }} (part ${{ matrix.JOB_NUMBER }})"
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           persist-credentials: false
       - name: Setup python
@@ -405,7 +405,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           repository: "google/wycheproof"
           path: "wycheproof"
@@ -439,7 +439,7 @@ jobs:
     name: "Downstream tests for ${{ matrix.DOWNSTREAM }}"
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         with:
           persist-credentials: false
       - uses: actions/cache@v2.1.6
